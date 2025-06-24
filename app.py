@@ -90,26 +90,50 @@ horoscope_db = {
 
 
 st.markdown("""
-<style>
-body {
-    background-color: #e6e6fa;
-}
-[data-testid="stAppViewContainer"] {
-    background-color: #e6e6fa;
-}
-.big-font {
-    font-size:30px !important;
-    color: #ff66cc;
-}
-.cute-box {
-    background-color: #fff0f5;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px #ffcce6;
-    margin-top: 20px;
-}
-</style>
+    <style>
+    body, [data-testid="stAppViewContainer"] {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    .big-font {
+        font-size:30px !important;
+        color: var(--text-color);
+    }
+
+    .cute-box {
+        background-color: var(--box-bg);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 2px 2px 10px var(--box-shadow);
+        margin-top: 20px;
+        color: var(--box-text);
+    }
+
+    /* Light mode variables */
+    @media (prefers-color-scheme: light) {
+        :root {
+            --background-color: #e6e6fa;
+            --text-color: #ff66cc;
+            --box-bg: #fff0f5;
+            --box-shadow: #ffcce6;
+            --box-text: #000000;
+        }
+    }
+
+    /* Dark mode variables */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background-color: #121212;
+            --text-color: #ff99cc;
+            --box-bg: #1e1e1e;
+            --box-shadow: #ff99cc;
+            --box-text: #ffffff;
+        }
+    }
+    </style>
 """, unsafe_allow_html=True)
+
 
 if not st.session_state.show_result:
     st.markdown('<p class="big-font">🌸 Welcome to Your Everyday Horoscope 🌸</p>', unsafe_allow_html=True)
