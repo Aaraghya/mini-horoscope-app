@@ -21,7 +21,7 @@ def get_zodiac(month, day):
             return sign
     return "Capricorn"
 
-# ---- horoscope database (short sample for now) ----
+
 horoscope_db = {
     "Aries": ["You're bold and unstoppable today!💌", 
               "Chase your dreams like a rocket!🚀", 
